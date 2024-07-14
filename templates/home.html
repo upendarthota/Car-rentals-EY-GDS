@@ -1,0 +1,102 @@
+<!Doctype>
+<html>
+<head>
+  {%load static%}
+
+
+     <title>My First Web Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="{% static 'home/homee.css' %}">
+  </head>
+<body>
+ 
+ 
+
+
+  <div class="container-sm mb-4">
+
+    <nav class="navbar navbar-expand-lg     bnav">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Car Rental</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{%url 'home'%}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'cars'%}">Cars</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  " href="{%url 'about'%}">About</a>
+              </li>
+               
+              <li class="nav-item">
+                <a class="nav-link  " href="{% url 'contact'%}">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  " href="{% url 'serve'%}">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  " href="{%url 'profile'%}">My Profile</a>
+              </li>
+              <li class="nav-item">
+                {% if user.is_authenticated %}
+                <a class="nav-link  " href="{% url 'logout' %}">LogOut</a>
+                 
+                {% endif %}
+ 
+              </li>
+            </ul>
+             
+          </div>
+         
+        </div>
+      </nav>
+    </div>       
+    
+    
+
+
+    <div class="container-sm mb-4 colo">
+
+      <div class="wel">
+
+        
+        {% if user.is_authenticated %}
+        <h1 style="color:#000066" > &nbsp &nbspWELCOME......<br> {{user.first_name}}  {{user.last_name}}</h1>
+        {% endif %}
+       
+   
+    <p style="color:BLACK">Get the best deals on car rentals for your next trip.<BR> Choose from a wide range of vehicles and enjoy <BR>a comfortable and convenient journey. Book now!</p>
+    
+      </div>  </div>
+ 
+
+
+ 
+
+ 
+
+      <!-- Remove the container if you want to extend the Footer to full width. -->
+ 
+  <div class="container-sm  " style="background-color:red" >
+    <footer class="bg-body-tertiary text-center text-lg-start ">
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2024 Copyright:
+        <a class="text-body" href="upendarthota.netlify.app">Upendar Thota</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+  </div>
+ 
+<!-- End of .container -->
+        
+</body>
+
+</html>
+ 
